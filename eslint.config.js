@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
+import reactCompiler from 'eslint-plugin-react-compiler'
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -19,7 +20,11 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    plugins: {
+      'react-compiler': reactCompiler
+    },
     rules: {
+      'react-compiler/react-compiler': 'error',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-explicit-any': 'off',
     }
